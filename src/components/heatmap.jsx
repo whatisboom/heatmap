@@ -6,14 +6,9 @@ export class Heatmap extends Component {
     const {
       data
     } = this.props;
-    const locations = data.map((item) => {
-      return {
-        longitude: item[0],
-        latitude: item[1]
-      }
-    });
-    const rows = locations.map((location, i) => {
-      return <p key={i}>Longitude: {location.longitude}, Latitude: {location.latitude}</p>
+
+    const rows = data.map((item, i) => {
+      return <p key={i}>Longitude: {item.lng}, Latitude: {item.lat}</p>
     })
     return rows;
   }

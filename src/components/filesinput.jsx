@@ -31,13 +31,20 @@ export class FilesInput extends Component {
     for(let i = 0; i < files.length; i++) {
       const p = new Promise((resolve, reject) => {
         Exif.getData(files[i], function() {
-          const longitude = Exif.getTag(this, 'GPSLongitude');
-          const latitude = Exif.getTag(this, 'GPSLatitude');
-          if (!longitude || !latitude) {
+          const lng = Exif.getTag(this, 'GPSLongitude');
+          const lat = Exif.getTag(this, 'GPSLatitude');
+
+          if (
+            typeof lng === 'undefined' ||
+            typeof lat === 'undefined'
+          ) {
             reject(new Error(`Missing GPS data: ${this.name}`));
           }
           else {
-            resolve([toDecimal(longitude), toDecimal(latitude)]);
+            resolve({
+              lng: toDecimal(lng),
+              lat: toDecimal(lat)
+            });
           }
         });
       });

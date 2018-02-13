@@ -8,7 +8,7 @@ let home;
 
 beforeEach(() => {
   home = shallow(<Home />);
-})
+});
 
 describe('<Home /> Container', () => {
   it('renders a single <h1>', () => {
@@ -22,4 +22,4 @@ describe('<Home /> Container', () => {
   it('should contain a single <FilesInput /> component', () => {
     expect(home.find(FilesInput).length).toEqual(1);
   });
-})
+});

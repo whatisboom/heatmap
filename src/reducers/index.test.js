@@ -26,5 +26,14 @@ describe('Reducers', () => {
       result = reducer.data(result, action);
       expect(result.length).toBe(0);
     });
+
+    it('should return previous state on unknown action type', () => {
+      const action = {
+        type: 'UNKNOWN_TYPE',
+        data: [{}]
+      };
+      let result = reducer.data(undefined, action);
+      expect(result.length).toBe(0);
+    });
   });
 });

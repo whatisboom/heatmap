@@ -1,4 +1,4 @@
-import { SET_LOCATION_DATA } from "../actions/types";
+import { SET_LOCATION_DATA } from '../actions/types';
 
 export function data(data = [], action) {
   switch (action.type) {

@@ -4,12 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "node ./node_modules/jest/bin/jest.js",
+    "tdd": "node ./node_modules/jest/bin/jest.js --watchAll",
     "start": "parcel src/index.html"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "jest": {
+    "setupTestFrameworkScriptFile": "./src/enzymeSetup.js"
+  },
   "dependencies": {
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.6.1",
@@ -23,6 +27,11 @@
     "redux": "^3.7.2"
   },
   "devDependencies": {
+    "babel-jest": "^22.2.2",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "jest": "^22.2.2",
+    "react-test-renderer": "^16.2.0",
     "typescript": "^2.7.1"
   }
 }
